@@ -7,7 +7,7 @@ use Symfony\Component\Lock\LockFactory;
 use Symfony\Component\Lock\LockInterface;
 
 /**
- * @method static LockInterface create(?string $orderId = null, ?float $ttl = null, ?bool $autoRelease = null, ?string $prefix = null)
+ * @method static LockInterface lock(?string $orderId = null, ?float $ttl = null, ?bool $autoRelease = null, ?string $prefix = null)
  */
 class Locker
 {
@@ -17,7 +17,7 @@ class Locker
     {
         $key = $arguments[0] ?? '';
         unset($arguments[0]);
-        return static::createLock($name . $key, ...$arguments);
+        return static::createLock($key, ...$arguments);
     }
 
     /**
