@@ -15,9 +15,7 @@ class Locker
 
     public static function __callStatic($name, $arguments)
     {
-        $key = $arguments[0] ?? '';
-        unset($arguments[0]);
-        return static::createLock($key, ...$arguments);
+        return static::createLock(...$arguments);
     }
 
     /**
