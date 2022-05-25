@@ -21,7 +21,7 @@ use yzh52521\WebmanLock\Locker;
 class Cash {
     public function changeCash()
     {
-        $lock = Locker::lock($currentUserId);
+        $lock = Locker::lock($key);
         if (!$lock->acquire()) {
             throw new \Exception('操作太频繁，请稍后再试');
         }
